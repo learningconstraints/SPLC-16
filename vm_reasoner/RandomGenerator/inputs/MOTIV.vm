@@ -1,0 +1,143 @@
+Relationships:
+sequence {
+	scene{
+		background
+		? objects {
+			someOf{
+				vehicle1
+				vehicle2
+				vehicle3
+				vehicle4
+				vehicle5
+			}
+			someOf{
+				man1
+				man2
+				man3
+				man4
+				man5
+			}
+			? distractors
+			? occultants
+		}
+	}
+	capturingConditions{
+		camera
+		capture
+	}
+	signal_quality
+}
+
+Attributes:
+
+//background
+int sequence.identifier [0..10] default 0 
+int sequence.comment [0..0] default 0 
+
+int background.identifier [0..0] default 0 
+
+//targets
+int vehicle1.identifier [0..16] default 0 
+int vehicle1.trajectory [0..8] delta 1  default 0
+int vehicle1.appearance_change [0 .. 1] delta 1 default 5 
+int vehicle1.shadowed [0 .. 1] delta 1 default 25 
+int vehicle1.dust [0..1] delta 1 default 50 
+
+//targets
+int vehicle2.identifier [0..16] default 0 
+int vehicle2.trajectory [0..8] delta 1  default 0
+int vehicle2.appearance_change [0 .. 1] delta 1 default 5 
+int vehicle2.shadowed [0 .. 1] delta 1 default 25 
+int vehicle2.dust [0..1] delta 1 default 50 
+
+//targets
+int vehicle3.identifier [0..16] default 0 
+int vehicle3.trajectory [0..8] delta 1  default 0
+int vehicle3.appearance_change [0 .. 0] delta 1 default 5 
+int vehicle3.shadowed [0 .. 0] delta 1 default 25 
+int vehicle3.dust [0..0] delta 1 default 50
+ 
+//targets
+int vehicle4.identifier [0..16] default 0 
+int vehicle4.trajectory [0..8] delta 1  default 0
+int vehicle4.appearance_change [0 .. 0] delta 1 default 5 
+int vehicle4.shadowed [0 .. 0] delta 0 default 25 
+int vehicle4.dust [0..0] default 50 
+
+//targets
+int vehicle5.identifier [0..16] default 0 
+int vehicle5.trajectory [0..8] delta 1  default 0
+int vehicle5.appearance_change [0 .. 0] delta 1 default 5 
+int vehicle5.shadowed [0 .. 0] delta 1 default 25 
+int vehicle5.dust [0..0] default 50 
+
+//man
+int man1.identifier [0..0] default 0 
+int man1.trajectory [0..0] default 0 
+int man1.appearance_change [0..0] default 0 
+int man1.shadowed [0..0] default 0 
+//man
+int man2.identifier [0..0] default 0 
+int man2.trajectory [0..0] default 0 
+int man2.appearance_change [0..0] default 0 
+int man2.shadowed [0..0] default 0
+//man
+int man3.identifier [0..0] default 0 
+int man3.trajectory [0..0] default 0 
+int man3.appearance_change [0..0] default 0 
+int man3.shadowed [0..0] default 0
+//man
+int man4.identifier [0..0] default 0 
+int man4.trajectory [0..0] default 0 
+int man4.appearance_change [0..0] default 0 
+int man4.shadowed [0..0] default 0
+//man
+int man5.identifier [0..0] default 0 
+int man5.trajectory [0..0] default 0 
+int man5.appearance_change [0..0] default 0 
+int man5.shadowed [0..0] default 0
+
+//Distractors
+real distractors.butterfly_level [0 .. 1] 		delta 0.25 default 0 
+real distractors.bird_level [0 .. 1] 				delta 0.25 default 0  
+real distractors.far_moving_vegetation [0 .. 1] 	delta 0.1 default 0 
+real distractors.close_moving_vegetation [0 .. 1] delta 0.1 default 0  
+real distractors.light_reflection [0 .. 1] 		delta 0.25 default 0  
+real distractors.blinking_light [0 .. 1] 			delta 0.1 default 0 
+
+// Occulting objects
+real occultants.solid_level [0 .. 1] 			delta 0.1 default 2 
+real occultants.semi_transparent_level [0 .. 1] delta 0.1 default 2 
+
+//Capturing conditions
+real camera.vibration [0 .. 1]		delta 0.1 default 0 
+real camera.focal_change [0 .. 1]	delta 0.1 default 0 
+real camera.pan_motion [0 .. 1]		delta 0.25 default 0 
+real camera.tilt_motion [0 .. 1] 	delta 0.25 default 0
+real camera.altitude [0 .. 5] 		delta 0.5 default 0 
+real capture.illumination_level [0 .. 1] default 0 delta 0.5
+real capture.shadow_level [0 .. 1] 	delta 0.1 default 0 
+real capture.global_light_change_level [0 .. 1] delta 0.1 default 0  
+real capture.local_light_change_level [0 .. 1] 	delta 0.1 default 0 
+real capture.heat_haze_level [0 .. 1] delta 0.25 default 0  
+real capture.fog_level [0 .. 1] delta 0.1
+real capture.humidity_level [0 ..0] delta 0
+
+// Signal quality
+real signal_quality.picture_width [1280..1280] delta 0 default 0
+real signal_quality.picture_height [720..720] delta 0 default 0 
+real signal_quality.force_balance [0 .. 1] delta 0.01
+real signal_quality.luminance_mean [0 .. 255] delta 2 default 72
+real signal_quality.luminance_dev [0 .. 64] delta 1  default 48
+real signal_quality.chrominance_U_mean [0 .. 224] 	delta 0.01 default 128
+real signal_quality.chrominance_U_dev [0 .. 96] 		delta 0.01 default 8
+real signal_quality.chrominance_V_mean [128 .. 190] 	delta 0.01 default 128  
+real signal_quality.chrominance_V_dev [0 .. 36] 		delta 0.01 default 8 
+real signal_quality.blur_level [0 .. 1] 			delta 0.20 default 2 
+real signal_quality.static_noise_level [0 .. 1] 	delta 0.20 default 2 
+real signal_quality.dynamic_noise_level [0 .. 1] 	delta 0.20 default 2 
+real signal_quality.frame_instability [0 .. 1] 		delta 0.20 default 2 
+real signal_quality.line_instability [0 .. 1] 		delta 0.20 default 2 
+real signal_quality.compression_artefact_level [0 .. 1]  delta 0.2 default 2
+
+%Constraints
