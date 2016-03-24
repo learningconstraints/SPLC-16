@@ -32,22 +32,14 @@ int main(int argc, char** argv)
     const string filename_ref = argv[3];
 
 
-    //oracle_histograms oracle_h;
-    oracle_contrasts oracle_c;
     oracle_contrasts_with_ref oracle_with_ref;
 
     switch(choice)
     {
-        case 1 : oracle_c = oracle_contrasts(filename,freq_compute); break;
-        //case 1 : oracle_h = oracle_histograms(filename,freq_compute); break;
-        case 2 : oracle_with_ref = oracle_contrasts_with_ref(filename,filename_ref,freq_compute); break;
-        //case -1 : oracle_h = oracle_histograms(filename,freq_compute); oracle_s = oracle_sharpness(filename,freq_compute); break;
-        //case -1 : oracle_c = oracle_contrasts(filename,freq_compute); oracle_s = oracle_contrasts_with_ref(filename, filename_ref,freq_compute); break;
+        case 1 : oracle_with_ref = oracle_contrasts_with_ref(filename,filename_ref,freq_compute); break;
         default : help(); break;
     }
 
-    ///TODO test to know which oracle are set (method to retrieved a bool is_set where is_set returns true if the constructor has been called)
-    //oracle_h.decide();
     bool result = oracle_with_ref.decide();
 
     //cout << "Processing succeeded !" << endl;

@@ -63,55 +63,6 @@ int main(int argc, char** argv)
 }
 
 
-/*string parse_input_file(ifstream& ifs)
-{
-    stringstream constraints;
-    string cus;
-    string line;
-    string l;
-    getline(ifs,line); // first line can be discarded
-    while(!ifs.eof())
-    {
-        if(line.find('N') == 0)//not interesting
-        {
-            size_t pos = line.find_first_of("\"");
-            size_t stop = line.find_last_of("\"");
-
-            l = line.substr(pos+1, stop-(pos+1) );
-            cout << l << endl;
-            cout << pos << endl;
-            cout << stop << endl;
-            if(line.find("shape=box") != string::npos) //it's a leaf
-            {
-                if(l.substr(0,1)=="1")
-                {
-                    constraints << "!(" + cus + ")" << endl;
-                    cus = "";
-                }
-            }
-            else if(l.substr(0,1)=="<"  || l.substr(0,1)==">")
-            {
-                cus += l;
-            }
-            else
-            {
-                if(cus == "")
-                {
-                    cus = l;
-                }
-                else
-                {
-                    cus += " && "+l.substr(0,string::npos);
-                }
-                //cout << cus << endl;
-            }
-        }
-        getline(ifs,line);
-    }
-
-    return constraints.str();
-}*/
-
 void write_constraints(string constraints, ofstream& ofs)
 {
     ofs << constraints << endl;
