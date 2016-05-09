@@ -58,13 +58,11 @@ int main(int argc, char** argv)
 void assign_label(const string filename_ref, const string filename_cur, const int computation_frequency, const string output)
 {
 
-
+    // These two lines are oracle-specific
     oracle_contrasts_with_ref oracle_with_ref = oracle_contrasts_with_ref(filename_cur,filename_ref,computation_frequency);
-
-
-    ///TODO test to know which oracle are set (method to retrieved a bool is_set where is_set returns true if the constructor has been called)
-    //oracle_h.decide();
     bool result = oracle_with_ref.decide();
+    // Try this one instead to use the oracle for heavy videos:
+    //bool result = OracleHeavyVids(filename, threshold).decide();
 
     //cout << "Processing succeeded !" << endl;
     ofstream ofs;

@@ -1,0 +1,4 @@
+vm_reasoner/fr.*
+*.classpath
+*.settings/
+*.project

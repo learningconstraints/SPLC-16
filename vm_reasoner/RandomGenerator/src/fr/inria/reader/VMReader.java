@@ -456,7 +456,7 @@ public class VMReader {
 			if (fd instanceof FeaturesGroup) {
 				FeaturesGroup group = (FeaturesGroup) fd;
 				EList<FeatureDefinition> groupedFeatures = group.getGroupedFeatures();
-				LinkedList<Variable> childs= new LinkedList<>();
+				LinkedList<Variable> childs= new LinkedList<Variable>();
 				for (FeatureDefinition fdef : groupedFeatures) {
 
 					if (fdef instanceof Feature) {
