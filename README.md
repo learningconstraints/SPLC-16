@@ -21,3 +21,13 @@ From this description, the total workflow should be as follow :
 - generate configurations via the VM (and generate videos out of these files)
 - use prepare_ml.sh which will try to find configuration files and corresponding videos; create a CSV file with corresponding columns for features' names; run the desired oracle and gather features' values as well as oracle's decisiosn to the CSV file
 - run run_J48.sh to create a decision model and output constraints into a text file
+
+### data sample
+We also provide the description of data used in the article. They are placed under the folder data.
+Two sub-folders are in this folder.
+Each sub-folder correspond to one oracle we provide.
+In each sub-folder, there are 4 files.
+First, data_for_ml.csv which is the csv file contain the description of the videos we used.
+If you want to use Weka, data_all.arff contain the same description as in data_for_ml.csv but in the arff format which is the one used by Weka.
+Finally, train.csv and test.csv are two files separating data_for_ml.csv into two sets (respectively for training the ML algorithm and to test on never-seen-before data).
+Please be aware that the data for oracle "heavy" will be available shortly.
