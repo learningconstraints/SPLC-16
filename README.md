@@ -30,4 +30,3 @@ In each sub-folder, there are 4 files.
 First, data_for_ml.csv which is the csv file contain the description of the videos we used.
 If you want to use Weka, data_all.arff contain the same description as in data_for_ml.csv but in the arff format which is the one used by Weka.
 Finally, train.csv and test.csv are two files separating data_for_ml.csv into two sets (respectively for training the ML algorithm and to test on never-seen-before data).
-Please be aware that the data for oracle "heavy" will be available shortly.
