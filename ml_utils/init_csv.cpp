@@ -57,7 +57,7 @@ void prepare_output_file(const string output_filename)
 
         output_file << "signal_quality.picture_width" << "," << "signal_quality.picture_height" << "," << "signal_quality.force_balance" << "," << "signal_quality.luminance_mean" << "," << "signal_quality.luminance_dev" << "," << "signal_quality.chrominance_U_mean" << "," << "signal_quality.chrominance_U_dev" << "," << "signal_quality.chrominance_V_mean" << "," << "signal_quality.chrominance_V_dev" << "," << "signal_quality.blur_level" << "," << "signal_quality.static_noise_level" << "," << "signal_quality.dynamic_noise_level" << "," << "signal_quality.frame_instability" << "," << "signal_quality.line_instability" << "," << "signal_quality.compression_artefact_level" << ",";
 
-        output_file << "label" << "\n";
+        output_file << "value that led to label" << "," << "label" << "\n";
 
         output_file.close();
     }
