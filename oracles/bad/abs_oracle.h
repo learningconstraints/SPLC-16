@@ -22,7 +22,7 @@ class oracle
         oracle();
         oracle(string name, int f=10);
         virtual ~oracle();
-        virtual bool decide(int& val) = 0;
+        virtual bool decide(double& val=-1) = 0;
     protected:
 
     string filename;
