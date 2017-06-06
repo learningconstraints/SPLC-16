@@ -15,7 +15,7 @@ class Oracle : public oracle_contrasts
         virtual ~Oracle();
 
         //decide whether a video is not computable or it is
-        bool decide();
+        bool decide(double& val);
     protected:
     private:
 
