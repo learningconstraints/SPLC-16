@@ -7,7 +7,7 @@ Oracle::Oracle(const char* fname)
 
 Oracle::~Oracle() { }
 
-bool Oracle::decide() {
+bool Oracle::decide(int& nbNotComputable=-1, int& nbTotal=-1) {
     unsigned int nb_frame=0;
     unsigned int nb_not_computable = 0;
     bool isNotComputable = false; //final result to decide
@@ -48,6 +48,11 @@ bool Oracle::decide() {
     vid.release();
     vid_reference.release();
     double nb_computed = ceil((double)(nb_frame)/freq);
+    
+    //to get a float value about "how well" the video is "computable"
+    nbNotComputable = nb_not_computable;
+    nbTotal = nb_computed;
+    
     if( (nb_not_computable/nb_computed) >= 0.5)
         isNotComputable = true;
     //return whether the video is computable or not
