@@ -29,7 +29,18 @@ int main(int argc, char** argv) {
     conf_file_parser cfg(conf_path, argv[3]);
     cfg.parse_file();
     // Label with the oracle selected in Makefile
-    bool result = Oracle(vid_path.c_str()).decide();
+    double val= -1;
+    bool result = Oracle(vid_path.c_str()).decide(val);
+    if(val == -1)
+    {
+        cerr << "Something went wrong with the decision process (could not retrieve the value that led to the decision)"s << endl;
+        exit(2);
+    }
+    else
+    {
+        out_file << val << ",";
+    }
+    
     if (result) {
         cout << "Not computable";
         out_file << "1";
