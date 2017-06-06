@@ -27,7 +27,7 @@ oracle_contrasts::~oracle_contrasts()
 * return true if the video is ok, false otherwise
 * A video is considered non-computable if at least 1 frame of 10 is not computable (arbitrary threshold)
 */
-bool oracle_contrasts::decide()
+bool oracle_contrasts::decide(double& val)
 {
 
     //the number of frame retrieved (to know which ones are to be computed)
@@ -87,9 +87,11 @@ bool oracle_contrasts::decide()
     vid.release();
 
     double nb_computed = ceil((double)(nb_frame)/freq);
-    cout << (nb_not_computable/ nb_computed) << endl;
+    
+    val = (nb_not_computable/ nb_computed);
+    cout << val << endl;
     cout << nb_computed << "\t" << ceil((double)(nb_frame)/freq) << "\t" << nb_not_computable << endl;
-    if( (nb_not_computable/nb_computed) >= 0.5)
+    if( val >= 0.5)
     {
         isNotComputable = true;
     }
