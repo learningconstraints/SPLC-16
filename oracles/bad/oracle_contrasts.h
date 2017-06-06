@@ -22,7 +22,7 @@ class oracle_contrasts : public oracle
         //destructor
         virtual ~oracle_contrasts();
         //decide whether a video is not computable or it is
-        bool decide();
+        bool decide(double& val = -1);
     protected:
         //openCV DFT of an image
         bool compute_fourier_transform(Mat& img);
